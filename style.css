@@ -1,0 +1,632 @@
+/* Общие цвета, чтобы не повторять их значения в каждом блоке */
+:root {
+  --background: #141414;
+  --surface-soft: #1a1a1a;
+  --line: #262626;
+  --text-muted: #999999;
+  --purple: #703bf7;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 1280px;
+  background: var(--background);
+  color: white;
+  font-family: "Urbanist", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 2px solid #c4a5ff;
+  outline-offset: 4px;
+}
+
+.page-container {
+  width: calc(100% - 160px);
+  max-width: 1280px;
+  margin-inline: auto;
+}
+
+.announcement {
+  height: 49px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--surface-soft);
+  border-bottom: 1px solid var(--line);
+}
+
+.announcement::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("assets/banner-pattern.svg") center / cover no-repeat;
+  mix-blend-mode: color-dodge;
+  pointer-events: none;
+}
+
+.announcement[hidden] {
+  display: none;
+}
+
+.announcement p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #f2f2f2;
+}
+
+.announcement p a {
+  margin-left: 5px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.announcement__close {
+  position: absolute;
+  z-index: 1;
+  right: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 10%);
+  color: white;
+}
+
+.announcement__close:hover {
+  background: #4b4b55;
+}
+
+.navbar-wrap {
+  background: var(--surface-soft);
+  box-shadow: inset 0 -1px var(--line);
+}
+
+.navbar {
+  height: 77px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  column-gap: 24px;
+}
+
+.brand {
+  display: block;
+  justify-self: start;
+}
+
+.brand img {
+  width: 114px;
+  height: 34px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-link,
+.nav-contact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 45px;
+  padding: 0;
+  line-height: 1.5;
+  font-size: 14px;
+  border: 0;
+  border-radius: 8px;
+  transition: background-color .15s ease;
+}
+
+.nav-link--current {
+  min-width: 77px;
+  padding: 11px 19px;
+  border: 1px solid var(--line);
+}
+
+.nav-link:hover,
+.nav-link--current {
+  background: var(--background);
+  border-color: var(--line);
+}
+
+.nav-contact {
+  justify-self: end;
+  min-width: 109px;
+  padding: 13px 19px;
+  border: 1px solid var(--line);
+  background: var(--background);
+}
+
+.nav-contact:hover {
+  background: #282828;
+}
+
+/* Делим первый экран на две колонки с промежутком между ними */
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  column-gap: 60px;
+  min-height: 622px;
+  overflow: hidden;
+}
+
+.hero__copy-wrap {
+  display: flex;
+  align-items: center;
+  padding-block: 56px;
+}
+
+.hero__copy {
+  width: calc(100% - 80px);
+  margin-left: 80px;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 46px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.hero__description {
+  margin: 20px 0 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.hero__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 50px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 49px;
+  padding: 13px 19px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: nowrap;
+  transition: background-color .15s ease;
+}
+
+.button--outline {
+  min-width: 111px;
+  background: var(--background);
+  border-color: var(--line);
+}
+
+.button--outline:hover {
+  background: #242424;
+}
+
+.button--primary {
+  min-width: 151px;
+  background: var(--purple);
+}
+
+.button--primary:hover {
+  background: #885cff;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 50px;
+}
+
+.stat {
+  min-height: 99px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  padding: 13px 19px;
+  background: var(--surface-soft);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.stat strong {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.stat span {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.hero__visual {
+  min-height: 622px;
+  position: relative;
+  overflow: hidden;
+  background: var(--surface-soft);
+}
+
+.hero__visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("assets/hero-pattern.svg") center top / cover no-repeat;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.hero__image {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Круг расположен поверх текста и изображения, поэтому здесь absolute */
+.hero__seal {
+  position: absolute;
+  z-index: 3;
+  top: 95px;
+  left: calc(50% - 35px);
+  width: 129px;
+  height: 129px;
+  pointer-events: none;
+}
+
+/* Все четыре карточки занимают одинаковую ширину */
+.features {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  padding: 10px;
+  background: var(--background);
+  outline: 1px solid var(--line);
+  box-shadow: 0 0 0 6px var(--surface-soft);
+}
+
+.feature-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 30px 16px;
+  background: var(--surface-soft);
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 1px var(--line);
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.feature-card picture {
+  display: block;
+  flex-shrink: 0;
+}
+
+.feature-card__arrow {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.feature-card:hover {
+  box-shadow: inset 0 0 0 1px var(--purple);
+}
+
+.properties {
+  margin-top: 120px;
+  margin-bottom: 120px;
+}
+
+.properties__header {
+  display: flex;
+  align-items: flex-end;
+  gap: 150px;
+  margin-bottom: 60px;
+}
+
+.properties__intro {
+  position: relative;
+  flex: 1;
+}
+
+.properties__decoration {
+  position: absolute;
+  top: -30px;
+  left: -10px;
+}
+
+.properties h2 {
+  margin: 0 0 10px;
+  font-size: 38px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.properties__intro p {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.properties .button {
+  color: white;
+  min-height: 49px;
+  padding: 13px 19px;
+  font-size: 14px;
+}
+
+.properties__view-all {
+  flex-shrink: 0;
+  background: var(--surface-soft);
+  border-color: var(--line);
+}
+
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.property-card {
+  min-width: 0;
+  padding: 30px;
+  box-shadow: inset 0 0 0 1px var(--line);
+  border-radius: 12px;
+}
+
+/* Фото заполняет область без искажения пропорций, лишние края обрезаются */
+.property-card__image {
+  width: 100%;
+  height: 255px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.property-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.property-card h3 {
+  margin: 0 0 4px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.property-card p {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.text-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: white;
+  font: inherit;
+  text-decoration: underline;
+}
+
+/* Характеристики объекта выводятся небольшими плашками в один ряд */
+.property-card__features {
+  display: flex;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.property-card__features li {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 14px;
+  border-radius: 28px;
+  box-shadow: inset 0 0 0 1px var(--line);
+  background: var(--surface-soft);
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.property-card__features img { flex-shrink: 0; }
+
+.property-card__footer {
+  display: flex;
+  align-items: flex-end;
+  gap: 40px;
+}
+
+.property-card__price span {
+  display: block;
+  font-size: 14px;
+}
+
+.property-card__price strong {
+  display: block;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.property-card__footer .button {
+  flex: 1;
+  min-width: 0;
+}
+
+.properties__navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 40px;
+  padding-top: 16px;
+  box-shadow: inset 0 1px var(--line);
+}
+
+.properties__navigation p {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.properties__navigation p span { color: white; }
+.properties__arrows { display: flex; gap: 10px; }
+
+.properties__arrow {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface-soft);
+}
+
+.properties__arrow:disabled {
+  background: var(--background);
+  cursor: default;
+}
+
+/* На небольших ноутбуках уменьшаем отступы и подписи */
+@media (max-width: 1350px) {
+  .property-card { padding: 24px; }
+  .property-card__features li { padding-inline: 8px; font-size: 12px; }
+  .property-card__footer { gap: 16px; }
+  .property-card__footer .button { padding-inline: 10px; }
+
+  .feature-card {
+    min-height: 160px;
+    font-size: 14px;
+  }
+
+  .stat {
+    padding-inline: 12px;
+  }
+
+  .stat span {
+    font-size: 14px;
+  }
+}
+
+/* Размеры первого экрана для больших мониторов */
+@media (min-width: 1600px) {
+  .features { gap: 20px; padding: 20px; }
+  .feature-card { gap: 20px; min-height: 212px; padding: 40px 20px; font-size: clamp(16px, 1.042vw, 20px); }
+  .feature-card picture:not(.feature-card__arrow) img { width: 82px; height: 82px; }
+  .feature-card__arrow img { width: 34px; height: 34px; }
+
+  .page-container {
+    width: calc(100% - 324px);
+    max-width: 1596px;
+  }
+
+  .announcement { height: 63px; }
+  .announcement p { font-size: 18px; }
+  .announcement__close { width: 32px; height: 32px; }
+  .navbar { height: 99px; }
+  .brand img { width: 160px; height: auto; }
+  .nav-links { gap: 30px; }
+  .nav-link, .nav-contact { font-size: 18px; }
+  .nav-link--current { padding: 13px 23px; }
+  .nav-contact { padding: 15px 23px; }
+
+  .hero { column-gap: 80px; min-height: 814px; }
+  .hero__copy { width: calc(100% - 162px); margin-left: 162px; }
+  .hero h1 { font-size: 60px; }
+  .hero__description { margin-top: 24px; font-size: 18px; }
+  .hero__actions, .stats { margin-top: 60px; gap: 20px; }
+  .button { min-height: 63px; padding: 17px 23px; font-size: 18px; }
+  .stat { min-height: 121px; padding: 15px 23px; }
+  .stat strong { font-size: 40px; }
+  .stat span { font-size: 18px; }
+  .hero__visual { min-height: 814px; }
+  .hero__seal { top: 144px; left: calc(50% - 56px); width: 175px; height: 175px; }
+}
+
+/* Более просторные карточки недвижимости по Desktop-макету */
+@media (min-width: 1800px) {
+  .properties { margin-block: 150px; }
+  .properties .button { min-height: 63px; padding: 17px 23px; font-size: 18px; }
+  .properties__header { gap: 200px; margin-bottom: 80px; }
+  .properties h2 { margin-bottom: 14px; font-size: 48px; }
+  .properties__intro p { font-size: 18px; }
+  .properties__decoration { top: -40px; left: -20px; width: 68.4px; height: 30px; }
+  .property-grid { gap: 30px; }
+  .property-card { padding: 40px; }
+  .property-card__image { height: 318px; }
+  .property-card__content { gap: 30px; margin-top: 30px; }
+  .property-card h3 { margin-bottom: 6px; font-size: 24px; }
+  .property-card p { font-size: 18px; }
+  .property-card__features { gap: 10px; }
+  .property-card__features li { padding: 8px 14px; font-size: 18px; }
+  .property-card__features img { width: 24px; height: 24px; }
+  .property-card__footer { gap: 50px; }
+  .property-card__price { display: flex; flex-direction: column; gap: 2px; }
+  .property-card__price span { font-size: 18px; }
+  .property-card__price strong { font-size: 24px; }
+  .properties__navigation { margin-top: 50px; padding-top: 20px; }
+  .properties__navigation p { font-size: 20px; }
+  .properties__arrow { width: 58px; height: 58px; }
+  .properties__arrow img { width: 30px; height: 30px; }
+}

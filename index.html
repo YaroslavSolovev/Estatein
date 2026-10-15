@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Estatein — discover your dream property.">
+  <meta name="theme-color" content="#141414">
+  <title>Estatein - Discover Your Dream Property</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header" id="home">
+    <!-- Верхний баннер можно закрыть кнопкой справа -->
+    <div class="announcement" id="announcement">
+      <p>&#10024;Discover Your Dream Property with Estatein <a href="#about">Learn More</a></p>
+      <button class="announcement__close" id="close-announcement" type="button" aria-label="Close announcement">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <path d="M5 5l14 14M19 5L5 19" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Основное меню сайта -->
+    <div class="navbar-wrap">
+      <nav class="navbar page-container" aria-label="Main navigation">
+        <a class="brand" href="#home" aria-label="Estatein — Home">
+          <img src="assets/logo.svg" width="114" height="34" alt="">
+        </a>
+        <div class="nav-links">
+          <a class="nav-link nav-link--current" href="#home" aria-current="page">Home</a>
+          <a class="nav-link" href="#about">About Us</a>
+          <a class="nav-link" href="#properties">Properties</a>
+          <a class="nav-link" href="#services">Services</a>
+        </div>
+
+        <a class="nav-contact" href="#contact">Contact Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Первый экран: текст слева, фотография здания справа -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__copy-wrap">
+        <div class="hero__copy">
+          <h1 id="hero-title">Discover Your Dream Property with Estatein</h1>
+          <p class="hero__description">
+            Your journey to finding the perfect property begins here.
+            Explore our listings to find the home that matches your dreams.
+          </p>
+
+          <div class="hero__actions">
+            <a class="button button--outline" href="#about">Learn More</a>
+            <a class="button button--primary" href="#properties">Browse Properties</a>
+          </div>
+
+          <!-- Три основных показателя компании -->
+          <div class="stats" aria-label="Estatein in numbers">
+            <div class="stat">
+              <strong>200+</strong>
+              <span>Happy Customers</span>
+            </div>
+            <div class="stat">
+              <strong>10k+</strong>
+              <span>Properties For Clients</span>
+            </div>
+            <div class="stat">
+              <strong>16+</strong>
+              <span>Years of Experience</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__visual">
+        <img src="assets/hero-building.svg" alt="Blue-lit modern skyscrapers" class="hero__image" width="690" height="622">
+      </div>
+
+      <img class="hero__seal" src="assets/discover-circle.svg" alt="" width="129" height="129" aria-hidden="true">
+    </section>
+    <!-- Четыре направления работы компании -->
+    <section class="features" id="services" aria-label="Our real estate services">
+      <a class="feature-card" href="#properties">
+        <picture>
+          <source media="(min-width: 1600px)" srcset="assets/feature-home-desktop.svg">
+          <img src="assets/feature-home.svg" width="60" height="60" alt="">
+        </picture>
+        <span>Find Your Dream Home</span>
+        <picture class="feature-card__arrow">
+          <source media="(min-width: 1600px)" srcset="assets/feature-arrow-desktop.svg">
+          <img src="assets/feature-arrow.svg" width="26" height="26" alt="">
+        </picture>
+      </a>
+      <a class="feature-card" href="#contact">
+        <picture>
+          <source media="(min-width: 1600px)" srcset="assets/feature-value-desktop.svg">
+          <img src="assets/feature-value.svg" width="60" height="60" alt="">
+        </picture>
+        <span>Unlock Property Value</span>
+        <picture class="feature-card__arrow">
+          <source media="(min-width: 1600px)" srcset="assets/feature-arrow-desktop.svg">
+          <img src="assets/feature-arrow.svg" width="26" height="26" alt="">
+        </picture>
+      </a>
+      <a class="feature-card" href="#contact">
+        <picture>
+          <source media="(min-width: 1600px)" srcset="assets/feature-management-desktop.svg">
+          <img src="assets/feature-management.svg" width="60" height="60" alt="">
+        </picture>
+        <span>Effortless Property Management</span>
+        <picture class="feature-card__arrow">
+          <source media="(min-width: 1600px)" srcset="assets/feature-arrow-desktop.svg">
+          <img src="assets/feature-arrow.svg" width="26" height="26" alt="">
+        </picture>
+      </a>
+      <a class="feature-card" href="#contact">
+        <picture>
+          <source media="(min-width: 1600px)" srcset="assets/feature-investment-desktop.svg">
+          <img src="assets/feature-investment.svg" width="60" height="60" alt="">
+        </picture>
+        <span>Smart Investments, Informed Decisions</span>
+        <picture class="feature-card__arrow">
+          <source media="(min-width: 1600px)" srcset="assets/feature-arrow-desktop.svg">
+          <img src="assets/feature-arrow.svg" width="26" height="26" alt="">
+        </picture>
+      </a>
+    </section>
+    <section class="properties page-container" id="properties" aria-labelledby="properties-title">
+      <div class="properties__header">
+        <div class="properties__intro">
+          <img class="properties__decoration" src="assets/section-sparkles.svg" width="55" height="24" alt="">
+          <h2 id="properties-title">Featured Properties</h2>
+          <p>Explore our handpicked selection of featured properties. Each listing offers a glimpse into exceptional homes and investments available through Estatein. Click &quot;View Details&quot; for more information.</p>
+        </div>
+        <a class="button properties__view-all" href="#property-list">View All Properties</a>
+      </div>
+      <!-- У всех карточек одинаковая структура, отличаются только данные -->
+      <div class="property-grid" id="property-list">
+        <article class="property-card">
+          <img class="property-card__image" src="assets/seaside-serenity.png" width="353" height="255" alt="Seaside Serenity Villa" loading="lazy">
+          <div class="property-card__content">
+            <div>
+              <h3>Seaside Serenity Villa</h3>
+              <p>A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood... <button class="text-button" type="button" aria-label="Read more about Seaside Serenity Villa">Read More</button></p>
+            </div>
+            <ul class="property-card__features" aria-label="Property features">
+              <li><img src="assets/property-bed.svg" width="20" height="20" alt="">4-Bedroom</li>
+              <li><img src="assets/property-bath.svg" width="20" height="20" alt="">3-Bathroom</li>
+              <li><img src="assets/property-villa.svg" width="20" height="20" alt="">Villa</li>
+            </ul>
+            <div class="property-card__footer">
+              <p class="property-card__price"><span>Price</span><strong>$550,000</strong></p>
+              <button class="button button--primary" type="button" aria-label="View details of Seaside Serenity Villa">View Property Details</button>
+            </div>
+          </div>
+        </article>
+        <article class="property-card">
+          <img class="property-card__image" src="assets/metropolitan-haven.png" width="353" height="255" alt="Metropolitan Haven" loading="lazy">
+          <div class="property-card__content">
+            <div>
+              <h3>Metropolitan Haven</h3>
+              <p>A chic and fully-furnished 2-bedroom apartment with panoramic city views... <button class="text-button" type="button" aria-label="Read more about Metropolitan Haven">Read More</button></p>
+            </div>
+            <ul class="property-card__features" aria-label="Property features">
+              <li><img src="assets/property-bed.svg" width="20" height="20" alt="">2-Bedroom</li>
+              <li><img src="assets/property-bath.svg" width="20" height="20" alt="">2-Bathroom</li>
+              <li><img src="assets/property-villa.svg" width="20" height="20" alt="">Villa</li>
+            </ul>
+            <div class="property-card__footer">
+              <p class="property-card__price"><span>Price</span><strong>$550,000</strong></p>
+              <button class="button button--primary" type="button" aria-label="View details of Metropolitan Haven">View Property Details</button>
+            </div>
+          </div>
+        </article>
+        <article class="property-card">
+          <img class="property-card__image" src="assets/rustic-retreat.png" width="353" height="255" alt="Rustic Retreat Cottage" loading="lazy">
+          <div class="property-card__content">
+            <div>
+              <h3>Rustic Retreat Cottage</h3>
+              <p>An elegant 3-bedroom, 2.5-bathroom townhouse in a gated community... <button class="text-button" type="button" aria-label="Read more about Rustic Retreat Cottage">Read More</button></p>
+            </div>
+            <ul class="property-card__features" aria-label="Property features">
+              <li><img src="assets/property-bed.svg" width="20" height="20" alt="">3-Bedroom</li>
+              <li><img src="assets/property-bath.svg" width="20" height="20" alt="">3-Bathroom</li>
+              <li><img src="assets/property-villa.svg" width="20" height="20" alt="">Villa</li>
+            </ul>
+            <div class="property-card__footer">
+              <p class="property-card__price"><span>Price</span><strong>$550,000</strong></p>
+              <button class="button button--primary" type="button" aria-label="View details of Rustic Retreat Cottage">View Property Details</button>
+            </div>
+          </div>
+        </article>
+      </div>
+      <!-- Переключение объектов добавляется на этапе работы с JavaScript -->
+      <div class="properties__navigation">
+        <p><span>01</span> of 60</p>
+        <div class="properties__arrows">
+          <button class="properties__arrow" type="button" aria-label="Previous properties" disabled>
+            <img src="assets/arrow-left.svg" width="24" height="24" alt="">
+          </button>
+          <button class="properties__arrow" type="button" aria-label="Next properties">
+            <img src="assets/arrow-right.svg" width="24" height="24" alt="">
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
