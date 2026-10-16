@@ -368,56 +368,56 @@ img {
   box-shadow: inset 0 0 0 1px var(--purple);
 }
 
-.properties {
+.content-section {
   margin-top: 120px;
   margin-bottom: 120px;
 }
 
-.properties__header {
+.section-header {
   display: flex;
   align-items: flex-end;
   gap: 150px;
   margin-bottom: 60px;
 }
 
-.properties__intro {
+.section-intro {
   position: relative;
   flex: 1;
 }
 
-.properties__decoration {
+.section-decoration {
   position: absolute;
   top: -30px;
   left: -10px;
 }
 
-.properties h2 {
+.content-section h2 {
   margin: 0 0 10px;
   font-size: 38px;
   font-weight: 600;
   line-height: 1.5;
 }
 
-.properties__intro p {
+.section-intro p {
   margin: 0;
   color: var(--text-muted);
   line-height: 1.5;
 }
 
-.properties .button {
+.content-section .button {
   color: white;
   min-height: 49px;
   padding: 13px 19px;
   font-size: 14px;
 }
 
-.properties__view-all {
+.section-view-all {
   flex-shrink: 0;
   background: var(--surface-soft);
   border-color: var(--line);
 }
 
-.property-grid {
+.card-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
@@ -514,7 +514,7 @@ img {
   min-width: 0;
 }
 
-.properties__navigation {
+.section-navigation {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -523,16 +523,16 @@ img {
   box-shadow: inset 0 1px var(--line);
 }
 
-.properties__navigation p {
+.section-navigation p {
   margin: 0;
   color: var(--text-muted);
   line-height: 1.5;
 }
 
-.properties__navigation p span { color: white; }
-.properties__arrows { display: flex; gap: 10px; }
+.section-navigation p span { color: white; }
+.section-arrows { display: flex; gap: 10px; }
 
-.properties__arrow {
+.section-arrow {
   display: grid;
   place-items: center;
   width: 44px;
@@ -543,13 +543,218 @@ img {
   background: var(--surface-soft);
 }
 
-.properties__arrow:disabled {
+.section-arrow:disabled {
   background: var(--background);
   cursor: default;
 }
 
+/* У недвижимости и отзывов общие заголовки, сетка и нижняя навигация */
+/* Внутри отзыва используем flex, чтобы имена авторов были на одном уровне */
+.review-card {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  min-width: 0;
+  min-height: 363px;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.review-card__rating {
+  display: flex;
+  gap: 8px;
+}
+
+.review-card__rating picture { display: block; }
+
+.review-card__text { min-height: 136px; }
+
+.review-card h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.review-card p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.review-card__author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.review-card__author > img {
+  flex-shrink: 0;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.review-card__name { font-size: 18px; }
+.review-card__location { color: var(--text-muted); }
+
+/* FAQ: заголовки занимают две строки, чтобы кнопки стояли на одном уровне */
+.faq { margin-bottom: 72px; }
+
+.faq-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  min-width: 0;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.faq-card h3 {
+  min-height: 60px;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.faq-card p {
+  letter-spacing: -0.006em;
+  min-height: 48px;
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.faq-card__button {
+  margin-top: auto;
+  padding: 14px 20px;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: inset 0 0 0 1px var(--line);
+  background: var(--surface-soft);
+  color: white;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.faq-card__button:hover { background: #262626; }
+
+/* Ограничиваем узоры границами блока, основной контент остаётся поверх них */
+.cta {
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 1px var(--line), inset 0 -1px var(--line);
+}
+
+.cta__content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 150px;
+  padding-block: 60px;
+}
+
+.cta__content > div { flex: 1; }
+
+.cta h2 {
+  margin: 0 0 10px;
+  font-size: 38px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.cta p { margin: 0; color: var(--text-muted); line-height: 1.5; }
+.cta .button { flex-shrink: 0; min-height: 49px; padding: 13px 19px; font-size: 14px; }
+.cta__pattern { position: absolute; display: block; pointer-events: none; }
+.cta__pattern--left { top: 1px; left: 0; }
+.cta__pattern--right { top: -30px; right: -14px; transform: scaleX(-1); }
+
+/* Слева логотип и почта, справа пять колонок ссылок */
+.footer-main {
+  display: grid;
+  grid-template-columns: 326px minmax(0, 1fr);
+  gap: 80px;
+  padding-block: 80px;
+}
+
+.footer-brand { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; }
+
+.footer-email {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 305px;
+  height: 52px;
+  padding: 14px 20px;
+  border-radius: 8px;
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.footer-email > img { flex-shrink: 0; }
+
+.footer-email input {
+  min-width: 0;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: white;
+  font: inherit;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.footer-email input::placeholder { color: var(--text-muted); opacity: 1; }
+
+.footer-email button {
+  flex-shrink: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.footer-links { display: flex; justify-content: space-between; gap: 30px; }
+.footer-column { min-width: 0; }
+
+.footer-column h3 {
+  margin: 0 0 24px;
+  color: var(--text-muted);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.footer-column ul { display: flex; flex-direction: column; gap: 16px; margin: 0; padding: 0; list-style: none; }
+.footer-column a { font-size: 16px; line-height: 24px; white-space: nowrap; }
+.footer-column a:hover { color: #a685fa; }
+.footer-bottom { background: var(--surface-soft); }
+
+.footer-bottom__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 68px;
+  padding-block: 12px;
+}
+
+.footer-legal { display: flex; gap: 20px; padding-block: 10px; font-size: 14px; line-height: 24px; }
+.footer-legal p { margin: 0; }
+.footer-social { display: flex; gap: 8px; }
+.footer-social a { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--background); }
+.footer-social a:hover { background: var(--purple); }
+
 /* На небольших ноутбуках уменьшаем отступы и подписи */
 @media (max-width: 1350px) {
+  .faq-card { padding: 30px; }
+  .footer-main { grid-template-columns: 280px minmax(0, 1fr); gap: 40px; }
+  .footer-email { width: 280px; }
+  .footer-links { gap: 20px; }
+  .footer-column a { font-size: 14px; }
+
+  .review-card { padding: 30px; }
   .property-card { padding: 24px; }
   .property-card__features li { padding-inline: 8px; font-size: 12px; }
   .property-card__footer { gap: 16px; }
@@ -606,13 +811,51 @@ img {
 
 /* Более просторные карточки недвижимости по Desktop-макету */
 @media (min-width: 1800px) {
-  .properties { margin-block: 150px; }
-  .properties .button { min-height: 63px; padding: 17px 23px; font-size: 18px; }
-  .properties__header { gap: 200px; margin-bottom: 80px; }
-  .properties h2 { margin-bottom: 14px; font-size: 48px; }
-  .properties__intro p { font-size: 18px; }
-  .properties__decoration { top: -40px; left: -20px; width: 68.4px; height: 30px; }
-  .property-grid { gap: 30px; }
+  .content-section.faq { margin-bottom: 96px; }
+  .faq-card { padding: 50px; gap: 30px; }
+  .faq-card h3 { min-height: 72px; font-size: 24px; }
+  .faq-card p { min-height: 54px; font-size: 18px; }
+  .faq-card__button { padding: 18px 24px; font-size: 18px; line-height: 24px; }
+  .cta__content { gap: 250px; padding-block: 100px; }
+  .cta h2 { margin-bottom: 14px; font-size: 48px; }
+  .cta p { font-size: 18px; }
+  .cta .button { min-height: 63px; padding: 17px 23px; font-size: 18px; }
+  .cta__pattern--left { top: 59px; left: -20px; }
+  .cta__pattern--left img { width: 566px; height: 308px; }
+  .cta__pattern--right { top: 36px; right: -92px; }
+  .cta__pattern--right img { width: 725px; height: 394px; }
+  .footer-main { grid-template-columns: 538px minmax(0, 1fr); padding-block: 100px; }
+  .footer-brand { gap: 30px; }
+  .footer-email { width: 423px; height: 66px; padding: 18px 24px; gap: 10px; }
+  .footer-email input { font-size: 18px; }
+  .footer-email > img { width: 24px; height: 24px; }
+  .footer-email button img { width: 30px; height: 30px; }
+  .footer-column h3 { margin-bottom: 30px; font-size: 20px; }
+  .footer-column ul { gap: 20px; }
+  .footer-column a { font-size: 18px; }
+  .footer-bottom__content { min-height: 104px; padding-block: 16px; }
+  .footer-legal { gap: 38px; font-size: 18px; }
+  .footer-social { gap: 10px; }
+  .footer-social a { width: 52px; height: 52px; }
+  .footer-social img { width: 24px; height: 24px; }
+
+  .review-card { min-height: 442px; padding: 50px; gap: 40px; }
+  .review-card__rating { gap: 10px; }
+  .review-card__rating img { width: 44px; height: 44px; }
+  .review-card__text { min-height: 158px; }
+  .review-card h3 { margin-bottom: 14px; font-size: 24px; }
+  .review-card p { font-size: 18px; }
+  .review-card__author { gap: 12px; }
+  .review-card__author > img { width: 60px; height: 60px; }
+  .review-card__author .review-card__name { margin-bottom: 2px; font-size: 20px; }
+
+  .content-section { margin-block: 150px; }
+  .content-section .button { min-height: 63px; padding: 17px 23px; font-size: 18px; }
+  .section-header { gap: 200px; margin-bottom: 80px; }
+  .content-section h2 { margin-bottom: 14px; font-size: 48px; }
+  .section-intro p { font-size: 18px; }
+  .section-decoration { top: -40px; left: -20px; width: 68.4px; height: 30px; }
+  .card-grid { gap: 30px; }
   .property-card { padding: 40px; }
   .property-card__image { height: 318px; }
   .property-card__content { gap: 30px; margin-top: 30px; }
@@ -625,8 +868,8 @@ img {
   .property-card__price { display: flex; flex-direction: column; gap: 2px; }
   .property-card__price span { font-size: 18px; }
   .property-card__price strong { font-size: 24px; }
-  .properties__navigation { margin-top: 50px; padding-top: 20px; }
-  .properties__navigation p { font-size: 20px; }
-  .properties__arrow { width: 58px; height: 58px; }
-  .properties__arrow img { width: 30px; height: 30px; }
+  .section-navigation { margin-top: 50px; padding-top: 20px; }
+  .section-navigation p { font-size: 20px; }
+  .section-arrow { width: 58px; height: 58px; }
+  .section-arrow img { width: 30px; height: 30px; }
 }
