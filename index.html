@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<!-- Учебная вёрстка по дизайну Produce UI: Real Estate Business Website UI Template — Dark Theme
+     Макет: https://www.figma.com/design/QrBEz83XapH99twD7dYLcr/?node-id=139-6238 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -197,7 +199,7 @@
           </div>
         </article>
       </div>
-      <!-- Переключение объектов добавляется на этапе работы с JavaScript -->
+      <!-- Стрелки циклически меняют порядок трёх объектов -->
       <div class="section-navigation">
         <p><span>01</span> of 60</p>
         <div class="section-arrows">
@@ -327,7 +329,7 @@
           </div>
         </article>
       </div>
-      <!-- Пока показываем первый набор отзывов, без переключения -->
+      <!-- Отзывы переключаются тем же способом, что и объекты -->
       <div class="section-navigation">
         <p><span>01</span> of 10</p>
         <div class="section-arrows">
@@ -340,7 +342,7 @@
         </div>
       </div>
     </section>
-    <!-- Вопросы и краткие ответы; раскрытие добавим на этапе JavaScript -->
+    <!-- Кнопки раскрывают дополнительные ответы на вопросы -->
     <section class="faq content-section page-container" id="faq" aria-labelledby="faq-title">
       <div class="section-header">
         <div class="section-intro">
@@ -354,17 +356,20 @@
         <article class="faq-card">
           <h3 id="faq-question-1">How do I search for properties on Estatein?</h3>
           <p>Learn how to use our user-friendly search tools to find properties that match your criteria.</p>
-          <button class="faq-card__button" type="button" aria-describedby="faq-question-1">Read More</button>
+          <button class="faq-card__button" type="button" aria-describedby="faq-question-1" aria-expanded="false" aria-controls="faq-answer-1">Read More</button>
+          <p class="faq-card__answer" id="faq-answer-1" hidden>Use Browse Properties to jump to the listings. The arrow buttons change the first visible property. Choose View Property Details to see its description, features, and price.</p>
         </article>
         <article class="faq-card">
           <h3 id="faq-question-2">What documents do I need to sell my property through Estatein?</h3>
           <p>Find out about the necessary documentation for listing your property with us.</p>
-          <button class="faq-card__button" type="button" aria-describedby="faq-question-2">Read More</button>
+          <button class="faq-card__button" type="button" aria-describedby="faq-question-2" aria-expanded="false" aria-controls="faq-answer-2">Read More</button>
+          <p class="faq-card__answer" id="faq-answer-2" hidden>The documents depend on the property and its location. A real estate agent can confirm the requirements for your situation. The listings on this student website are examples, not offers for sale.</p>
         </article>
         <article class="faq-card">
           <h3 id="faq-question-3">How can I contact an Estatein agent?</h3>
           <p>Discover the different ways you can get in touch with our experienced agents.</p>
-          <button class="faq-card__button" type="button" aria-describedby="faq-question-3">Read More</button>
+          <button class="faq-card__button" type="button" aria-describedby="faq-question-3" aria-expanded="false" aria-controls="faq-answer-3">Read More</button>
+          <p class="faq-card__answer" id="faq-answer-3" hidden>Use Contact Us to reach the contact area. This is a student demo: there is no connected agent or message delivery service. You can explore the listings and try the email field without sending a request.</p>
         </article>
       </div>
       <div class="section-navigation">
@@ -407,14 +412,15 @@
         <a class="brand" href="#home" aria-label="Estatein — Home">
           <img src="assets/logo.svg" width="114" height="34" alt="">
         </a>
-        <!-- Поле пока без отправки: сервер для учебного сайта не подключён -->
-        <div class="footer-email">
+        <!-- Проверяем почту в браузере, но не отправляем её на сервер -->
+        <form class="footer-email" id="email-form">
           <img src="assets/footer-email.svg" width="20" height="20" alt="">
-          <input type="email" name="email" placeholder="Enter Your Email" aria-label="Your email address" autocomplete="email">
-          <button type="button" aria-label="Subscribe to email updates">
+          <input type="email" name="email" placeholder="Enter Your Email" aria-label="Your email address" autocomplete="email" required aria-describedby="email-status">
+          <button type="submit" aria-label="Subscribe to email updates">
             <img src="assets/footer-send.svg" width="24" height="24" alt="">
           </button>
-        </div>
+        </form>
+        <p class="footer-status" id="email-status" role="status" hidden></p>
       </div>
       <nav class="footer-links" aria-label="Footer navigation">
         <div class="footer-column">
@@ -478,5 +484,21 @@
       </div>
     </div>
   </footer>
+
+  <!-- Нативный dialog удерживает фокус внутри окна и закрывается по Escape -->
+  <dialog class="property-dialog" id="property-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description">
+    <div class="property-dialog__header">
+      <p>Property Details</p>
+      <button class="property-dialog__close" type="button" aria-label="Close property details" autofocus>&times;</button>
+    </div>
+    <img class="property-dialog__image" id="dialog-image" src="assets/seaside-serenity.png" width="720" height="300" alt="">
+    <h2 id="dialog-title">Seaside Serenity Villa</h2>
+    <p id="dialog-description"></p>
+    <ul class="property-card__features" id="dialog-features" aria-label="Property features"></ul>
+    <div class="property-dialog__footer">
+      <p>Price <strong id="dialog-price">$550,000</strong></p>
+      <a class="button button--primary" href="#contact" id="dialog-contact">Contact Us</a>
+    </div>
+  </dialog>
 </body>
 </html>
